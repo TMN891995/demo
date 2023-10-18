@@ -4,6 +4,8 @@
 <head>
     <meta charset="utf-8">
     <title>Order Summary Report</title>
+
+
     <style type="text/css">
 
         * {
@@ -12,9 +14,9 @@
             box-sizing: border-box;
 
         }
-        body{
-            overflow-y : hidden;
-        }
+      body{
+        overflow-y: hidden;
+      }
         iframe {
             width: 100%;
             height: 100vh;
@@ -27,8 +29,11 @@
 
 <body>
     <div><iframe id="iframe"></iframe></div>
+   
+
     <script type="text/javascript">
-       // const OrderNo = document.querySelector('input[name="OrderNo"]').value;
+       
+        //const OrderNo = document.querySelector('input[name="OrderNo"]').value;
    
         document.getElementById("iframe").src = "http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&j_username=joeuser&j_password=joeuser&ParentFolderUri=%2Freports&reportUnit=%2Freports%2FOrder_Summary_Report&standAlone=true";
    // console.log(OrderNo);

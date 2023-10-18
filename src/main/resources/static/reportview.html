@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Order Summary Report</title>
+
+
+    <style type="text/css">
+
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+
+        }
+      
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+            scrollbar-width: none;
+            
+        }
+    </style>
+</head>
+
+<body>
+        <label for="from">From Date:</label>
+        <input type="date" id="from" name="from"/>&nbsp;
+        <label for="to">To Date:</label>
+        <input type="date" id="to" name="to" />&nbsp;
+        <label>City:</label>
+        <input type="text" name="City" id="City" placeholder="Enter City">
+
+        <button type="button" onclick="clickReportView()">Report</button>
+        <br>&nbsp;
+        <br>
+    <div><iframe id="iframe"></iframe></div>
+   
+
+    <script type="text/javascript">
+        const dateInput = document.querySelectorAll('input[type="date"]');
+
+        dateInput[0].value = new Date().toISOString().split('T')[0];
+        dateInput[1].value = new Date().toISOString().split('T')[0];
+        function clickReportView() {
+
+            const City = document.querySelector('input[name="City"]').value;
+            const from = document.querySelector('input[name="from"]').value;
+            const to = document.querySelector('input[name="to"]').value;
+            document.getElementById("iframe").src = "http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&j_username=joeuser&j_password=joeuser&ParentFolderUri=%2Freports&reportUnit=%2Freports%2FOrder_Report&standAlone=true&City=" + City + "&OrderDate=" + from + "&ToOrderDate="+ to;
+        }
+   
+   // console.log(OrderNo);
+
+    </script>
+</body>
+
+</html>
