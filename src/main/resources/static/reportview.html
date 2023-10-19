@@ -26,12 +26,20 @@
 </head>
 
 <body>
-        <label for="from">From Date:</label>
+      <!--<label for="from">From Date:</label>
         <input type="date" id="from" name="from"/>&nbsp;
         <label for="to">To Date:</label>
         <input type="date" id="to" name="to" />&nbsp;
         <label>City:</label>
-        <input type="text" name="City" id="City" placeholder="Enter City">
+        <input type="text" name="City" id="City" placeholder="Enter City">&nbsp;-->  
+
+        <label for="report">Choose Report:</label>
+        <select name="report" id="report">
+        <option value="Order_Report">Order Detail Report</option>
+        <option value="Order_Summary_Report">Order Summary Report</option>
+        <option value="Order_Report">Sale Detail Report</option>
+        <option value="Order_Summary_Report">Sale Summary Report</option>
+        </select>
 
         <button type="button" onclick="clickReportView()">Report</button>
         <br>&nbsp;
@@ -45,14 +53,15 @@
         dateInput[0].value = new Date().toISOString().split('T')[0];
         dateInput[1].value = new Date().toISOString().split('T')[0];
         function clickReportView() {
-            const report = "Order_Report";
-            const City = document.querySelector('input[name="City"]').value;
+            const report = document.getElementById("report").value;
+            /*const City = document.querySelector('input[name="City"]').value;
             const from = document.querySelector('input[name="from"]').value;
-            const to = document.querySelector('input[name="to"]').value;
+            const to = document.querySelector('input[name="to"]').value;*/
+         
 
-            
+           // document.getElementById("iframe").src = "http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&j_username=jasperadmin&j_password=jasperadmin&ParentFolderUri=%2Freports&standAlone=true&reportUnit=%2Freports%2F"+ report +"&City=" + City + "&OrderDate=" + from + "&ToOrderDate="+ to;
+           document.getElementById("iframe").src = "http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&j_username=jasperadmin&j_password=jasperadmin&ParentFolderUri=%2Freports&standAlone=true&reportUnit=%2Freports%2F"+ report;
 
-            document.getElementById("iframe").src = "http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&j_username=jasperadmin&j_password=jasperadmin&ParentFolderUri=%2Freports&standAlone=true&reportUnit=%2Freports%2F"+ report +"&City=" + City + "&OrderDate=" + from + "&ToOrderDate="+ to;
         }
    
    // console.log(OrderNo);
