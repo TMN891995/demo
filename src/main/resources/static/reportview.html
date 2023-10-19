@@ -45,11 +45,14 @@
         dateInput[0].value = new Date().toISOString().split('T')[0];
         dateInput[1].value = new Date().toISOString().split('T')[0];
         function clickReportView() {
-
+            const report = "Order_Report";
             const City = document.querySelector('input[name="City"]').value;
             const from = document.querySelector('input[name="from"]').value;
             const to = document.querySelector('input[name="to"]').value;
-            document.getElementById("iframe").src = "http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&j_username=joeuser&j_password=joeuser&ParentFolderUri=%2Freports&reportUnit=%2Freports%2FOrder_Report&standAlone=true&City=" + City + "&OrderDate=" + from + "&ToOrderDate="+ to;
+
+            
+
+            document.getElementById("iframe").src = "http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&j_username=jasperadmin&j_password=jasperadmin&ParentFolderUri=%2Freports&standAlone=true&reportUnit=%2Freports%2F"+ report +"&City=" + City + "&OrderDate=" + from + "&ToOrderDate="+ to;
         }
    
    // console.log(OrderNo);
