@@ -15,7 +15,7 @@ public class DemoApplication {
 	public static void main(String[] args) {
 	SpringApplication app = new SpringApplication(DemoApplication.class);
 			app.setDefaultProperties(Collections
-   			.singletonMap("server.port", "8085"));
+   			.singletonMap("server.port", "8084"));
 
 		app.run(args);
 	// System.out.println("Session ID : " + DemoApplication.

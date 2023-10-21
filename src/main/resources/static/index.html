@@ -7,18 +7,24 @@
     <style type="text/css">
     </style>
 </head>
-<button onclick="ClickReport()">Report</button>
-<body>
- <!--
-  <label>OrderNo</label>
-  <input type="text" name="OrderNo"  id="OrderNo" placeholder="Enter Order No">
 
+<body>
+    <label for="reportindex">Choose Report:</label>
+    <select name="reportindex" id="reportindex">
+    <option value="Order_Report">Order Detail Report</option>
+    <option value="Order_Summary_Report">Order Summary Report</option>
+    <option value="Order_Report">Sale Detail Report</option>
+    <option value="Order_Summary_Report">Sale Summary Report</option>
+    </select>
+    <br>
     <button onclick="ClickReport()">Report</button>
- --> 
 
     <script type="text/javascript">
-     function ClickReport(){
+       
 
+     function ClickReport(){
+        const comboBoxValue = document.getElementById('reportindex').value;
+        localStorage.setItem('comboBoxValue', comboBoxValue);
       window.open("reportview.html");
      }
             
