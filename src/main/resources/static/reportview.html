@@ -32,9 +32,24 @@
     <iframe id="iframe"></iframe>
     <script type="text/javascript">
         const report = localStorage.getItem('comboBoxValue');
+        const Company = localStorage.getItem('comboBoxValue1');
         console.log(report);
-        document.getElementById("iframe").src = "http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&j_username=jasperadmin&j_password=jasperadmin&ParentFolderUri=%2Freports&standAlone=true&reportUnit=%2Freports%2F"+ report;
-
+        console.log(Company);
+        let username ="";
+        let password ="";
+        if (Company == "Alpha_Company") {
+            username="alphaadmin";
+            password="alphaadmin";
+          } else if (Company == "Beta_Company") {
+            username="betaadmin";
+            password="betaadmin";
+          } else {
+            username="deltaadmin";
+            password="deltaadmin";
+          }
+       // document.getElementById("iframe").src = "http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&j_username=jasperadmin&j_password=jasperadmin&ParentFolderUri=%2Freports&standAlone=true&reportUnit=%2Freports%2F"+ report;
+       document.getElementById("iframe").src = "http://localhost:8081/jasperserver/flow.html?_flowId=viewReportFlow&_flowId=viewReportFlow&j_username=" + username+"&j_password=" + password + "&ParentFolderUri=%2F"+Company+"&standAlone=true&reportUnit=%2F"+ Company +"%2FReports%2F"+ report;
+   
     </script>
 </body>
 

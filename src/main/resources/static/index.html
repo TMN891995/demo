@@ -3,19 +3,28 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Welcome</title>
+    <title>Welcome From MIT</title>
     <style type="text/css">
     </style>
 </head>
 
 <body>
+    <label for="companyindex">Choose Company:</label>
+    <select name="companyindex" id="companyindex">
+    <option value="Alpha_Company">Alpha Company</option>
+    <option value="Beta_Company">Beta Company</option>
+    <option value="Delta_Company">Delta Company</option>
+    </select>
+    <br>
+    <br>
     <label for="reportindex">Choose Report:</label>
     <select name="reportindex" id="reportindex">
-    <option value="Order_Report">Order Detail Report</option>
+    <option value="Order_Report">Order Report</option>
     <option value="Order_Summary_Report">Order Summary Report</option>
-    <option value="Order_Report">Sale Detail Report</option>
-    <option value="Order_Summary_Report">Sale Summary Report</option>
+    <option value="Product_Report">Product Report</option>
+    <option value="Order_By_Product_Category">Order By Product Category Report</option>
     </select>
+    <br>
     <br>
     <button onclick="ClickReport()">Report</button>
 
@@ -24,7 +33,10 @@
 
      function ClickReport(){
         const comboBoxValue = document.getElementById('reportindex').value;
+        const comboBoxValue1 = document.getElementById('companyindex').value;
+
         localStorage.setItem('comboBoxValue', comboBoxValue);
+        localStorage.setItem('comboBoxValue1',comboBoxValue1);
       window.open("reportview.html");
      }
             
